@@ -17,17 +17,7 @@ functions:
     handler: lambda.handler
     role: arn:aws:iam::980614374108:role/lambdaVPC
     events:
-      - http:
-          path: /
-          method: ANY
-      - http: 
-          path: /{proxy+}
-          method: ANY
-      # - http: ANY /
-      # - http: ANY /{proxy+}
-      # - http: ANY /about
-      # - http: ANY /members
-      # - http: ANY /signin
-      # - http: ANY /videoupload
+      - http: ANY /{proxy+}
+      - http: ANY /
 
     
