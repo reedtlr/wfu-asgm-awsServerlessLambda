@@ -1,0 +1,36 @@
+{
+  "name": "agsmfrontend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "deploy": "serverless deploy"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bpgould/AGSMfrontEnd.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bpgould/AGSMfrontEnd/issues"
+  },
+  "homepage": "https://github.com/bpgould/AGSMfrontEnd#readme",
+  "dependencies": {
+    "aws-serverless-express": "^3.4.0",
+    "express": "^4.17.1",
+    "serverless": "^2.15.0",
+    "browser-sync": "2.26.13",
+    "del": "6.0.0",
+    "gulp": "4.0.2",
+    "gulp-autoprefixer": "7.0.1",
+    "gulp-clean-css": "4.3.0",
+    "gulp-header": "2.0.9",
+    "gulp-plumber": "^1.2.1",
+    "gulp-rename": "2.0.0",
+    "gulp-sass": "4.1.0",
+    "merge-stream": "2.0.0"
+  }
+}
