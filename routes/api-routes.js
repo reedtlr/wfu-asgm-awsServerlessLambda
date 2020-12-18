@@ -7,7 +7,6 @@ module.exports = (app) => {
 
 	app.get("/api/getvideos", (req, res) => {
 		return videoSchema.find({}, function (err, data) {
-			console.log(err, data);
 			if (err) throw err;
 			return res.json(data);
 		});
@@ -16,22 +15,14 @@ module.exports = (app) => {
 	app.post("/api/addname", (req, res) => {
 		const { video, description, location } = req.body;
 		var myData = new videoSchema({ video, description, location });
-		myData.create(data, (err, res) => {
-			if (err) {
-				console.error(err);
-				console.log(data);
-				return res.status(400).send("unable to save to database");
-			} else {
-				res.json(`${req.body} saved to database`);
-			}
-		});
 
-		// .
-		// .then((item) => {
-		// 	res.json(`${req.body} saved to database`);
-		// })
-		// .catch((err) => {
-		// 	res.status(400).send("unable to save to database");
-		// });
+		myData
+			.save()
+			.then((myData) => {
+				res.json(`${myData} saved to database`);
+			})
+			.catch((err) => {
+				res.status(400).send("unable to save to database");
+			});
 	});
 };
