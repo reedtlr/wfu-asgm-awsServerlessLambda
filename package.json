@@ -1,5 +1,5 @@
 {
-  "name": "agsmfrontend",
+  "name": "wfu-asgm-awsServerlessLambda",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
@@ -10,17 +10,19 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/bpgould/AGSMfrontEnd.git"
+    "url": "git+https://github.com/tutchings/wfu-asgm-awsServerlessLambda.git"
   },
   "author": "",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/bpgould/AGSMfrontEnd/issues"
+    "url": "https://github.com/tutchings/wfu-asgm-awsServerlessLambda/issues"
   },
-  "homepage": "https://github.com/bpgould/AGSMfrontEnd#readme",
+  "homepage": "https://github.com/tutchings/wfu-asgm-awsServerlessLambda#readme",
   "dependencies": {
     "aws-serverless-express": "^3.4.0",
+    "body-parser": "^1.19.0",
     "express": "^4.17.1",
+    "mongoose": "^5.11.8",
     "serverless": "^2.15.0"
   }
 }
