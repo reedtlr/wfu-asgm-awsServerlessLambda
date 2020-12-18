@@ -12,7 +12,7 @@ module.exports = (app) => {
 		});
 	});
 
-	app.post("/api/addname", (req, res) => {
+	app.post("/api/addvideo", (req, res) => {
 		const { video, description, location } = req.body;
 		var myData = new videoSchema({ video, description, location });
 
