@@ -5,7 +5,7 @@ provider:
   # role: arn:aws:iam::980614374108:role/lambdaVPC
   # logs: 
   #   restApi: {role: arn:aws:iam::980614374108:role/lambdaVPC}
-  runtime: nodejs10.x
+  runtime: nodejs12.x
   memorySize: 512
   timeout: 10
   stage: dev
