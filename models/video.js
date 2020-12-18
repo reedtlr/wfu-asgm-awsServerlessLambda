@@ -5,4 +5,5 @@ var videoSchema = new Schema({
 	description: String,
 	location: String,
 });
+
 module.exports = mongoose.model("video", videoSchema);

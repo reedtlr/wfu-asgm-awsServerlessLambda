@@ -1,43 +1,37 @@
 const mongoose = require("mongoose");
 const videoSchema = require("../models/video");
 
-mongoose.Promise = global.Promise;
-mongoose.connect(
-	"mongodb+srv://dexteradmin:newpassword@dextercluster.ktzzs.mongodb.net/testdb"
-);
-
 module.exports = (app) => {
-    
-    app.get("/getvideos", (req, res) => {
-        const Schema = mongoose.Schema;
+	mongoose.Promise = global.Promise;
+	mongoose.connect(process.env.MONGOURI);
 
-        // ALREADY DECLARED ABOVE
-        var videoSchema = new Schema(
-            {
-                user: String,
-                description: String,
-                location: String,
-            },
-            { collection: "video" }
-        );
+	app.get("/api/getvideos", (req, res) => {
+		return videoSchema.find({}, function (err, data) {
+			console.log(err, data);
+			if (err) throw err;
+			return res.json(data);
+		});
+	});
 
-        var video = mongoose.model("video");
+	app.post("/api/addname", (req, res) => {
+		const { video, description, location } = req.body;
+		var myData = new videoSchema({ video, description, location });
+		myData.create(data, (err, res) => {
+			if (err) {
+				console.error(err);
+				console.log(data);
+				return res.status(400).send("unable to save to database");
+			} else {
+				res.json(`${req.body} saved to database`);
+			}
+		});
 
-        video.find({}, function (err, data) {
-            console.log(">>>>", data);
-        });
-    });
-
-    app.post("/addname", (req, res) => {
-        var myData = new videoSchema(req.body);
-        myData
-            .save()
-            .then((item) => {
-                res.send("item saved to database");
-            })
-            .catch((err) => {
-                res.status(400).send("unable to save to database");
-            });
-    });
-
+		// .
+		// .then((item) => {
+		// 	res.json(`${req.body} saved to database`);
+		// })
+		// .catch((err) => {
+		// 	res.status(400).send("unable to save to database");
+		// });
+	});
 };
