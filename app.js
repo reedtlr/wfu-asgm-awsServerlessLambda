@@ -1,4 +1,4 @@
-const express = require('express');
+const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
 
@@ -9,7 +9,6 @@ app.use(express.static("public"));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-require("./routes/html-routes.js")(app);
 require("./routes/api-routes.js")(app);
 
 module.exports = app;
