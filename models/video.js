@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 var videoSchema = new Schema({
 	url: String,
-	date: String,
+	date: Number,
 	region: String,
 	type: String,
 });

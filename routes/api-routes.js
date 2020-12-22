@@ -17,15 +17,10 @@ module.exports = (app) => {
 		var enddate = req.params.enddate;
 
 		return videoSchema.find(
-			{
-				date: {
-					$gte: startdate,
-					$lte: enddate,
-				},
-			},
+			{ date: { $gte: startdate, $lte: enddate } },
 			(err, data) => {
 				if (err) throw err;
-				return res.json(data);
+				res.json(data);
 			}
 		);
 	});
